@@ -81,7 +81,7 @@ jupyter notebook python/rock_raman_tutorial.ipynb
 │   ├── preprocess_packages_en.ipynb       English
 │   └── jch_external_validation.py         外部驗證：JCH 2018 公開資料投影
 ├── orange/rock_plsda.ows
-└── fig/                           17 張輸出圖
+└── fig/                           20 張圖（17 張輸出圖 + 3 張 Orange 實機截圖）
 ```
 
 ---
