@@ -1,5 +1,9 @@
 name: Deploy to GitHub Pages
 
+# 部署前提：Settings -> Pages -> Source 必須先選 "GitHub Actions"。
+# 沒有先設定的話，configure-pages 會以 HttpError: Not Found 失敗
+# （它呼叫 GET /repos/{owner}/{repo}/pages，Pages 沒啟用就是 404）。
+
 on:
   push:
     branches: [main]
@@ -21,10 +25,17 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/checkout@v6
+
+      - uses: actions/configure-pages@v6
+        # 如果不想手動去 Settings 開 Pages，把下一行取消註解，
+        # 由 workflow 自己啟用（需要 pages: write，上面已經給了）。
+        # with:
+        #   enablement: true
+
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: '.'
+
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
