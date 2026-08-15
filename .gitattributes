@@ -1,0 +1,26 @@
+# 統一行尾：入庫一律 LF，Windows 工作目錄照樣是 CRLF。
+# 少了這個檔，Windows 端 clone 之後 git status 會把整批未修改的檔案列成 modified。
+* text=auto
+
+*.md    text eol=lf
+*.py    text eol=lf
+*.R     text eol=lf
+*.r     text eol=lf
+*.csv   text eol=lf
+*.tab   text eol=lf
+*.html  text eol=lf
+*.yml   text eol=lf
+*.ows   text eol=lf
+*.ipynb text eol=lf
+.gitignore      text eol=lf
+.gitattributes  text eol=lf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+*.png binary
+*.jpg binary
+*.zip binary
+*.rar binary
+*.pdf binary

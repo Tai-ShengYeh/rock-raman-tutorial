@@ -1,0 +1,19 @@
+# Publisher PDFs must never be committed -- see DATA_SOURCES.md
+*.pdf
+1-s2.0-*
+
+# Python / R scratch
+__pycache__/
+*.pyc
+.Rhistory
+.RData
+.Rproj.user/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+.claude/

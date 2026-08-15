@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scheme description="石膏 vs 大理石 拉曼 PLS-DA。&#10;File 讀 rock_preprocessed.tab（已扣基線＋平滑，type 欄為 class）&#10;→ PLS-DA (orange-spectra, Components = 2)&#10;→ Scores 進 Scatter Plot、VIP 與 Loadings 各進一個 Data Table。" title="Rock Raman PLS-DA (gypsum vs marble)" version="2.0">
+	<nodes>
+		<node id="0" name="File" position="(80.0, 200.0)" project_name="Orange3" qualified_name="Orange.widgets.data.owfile.OWFile" title="File" version="" />
+		<node id="1" name="Data Table" position="(240.0, 90.0)" project_name="Orange3" qualified_name="Orange.widgets.data.owtable.OWDataTable" title="Data Table (raw)" version="" />
+		<node id="2" name="PLS-DA" position="(280.0, 220.0)" project_name="orange-spectra" qualified_name="orangespectra.widgets.owplsda.OWPLSDA" title="PLS-DA" version="" />
+		<node id="3" name="Scatter Plot" position="(470.0, 120.0)" project_name="Orange3" qualified_name="Orange.widgets.visualize.owscatterplot.OWScatterPlot" title="Scores — t1 vs t2" version="" />
+		<node id="4" name="Data Table" position="(470.0, 230.0)" project_name="Orange3" qualified_name="Orange.widgets.data.owtable.OWDataTable" title="VIP table" version="" />
+		<node id="5" name="Data Table" position="(470.0, 330.0)" project_name="Orange3" qualified_name="Orange.widgets.data.owtable.OWDataTable" title="Loadings" version="" />
+		<node id="6" name="Data Table" position="(470.0, 430.0)" project_name="Orange3" qualified_name="Orange.widgets.data.owtable.OWDataTable" title="Predictions" version="" />
+	</nodes>
+	<links>
+		<link enabled="true" id="0" sink_channel="Data" sink_node_id="1" source_channel="Data" source_node_id="0" />
+		<link enabled="true" id="1" sink_channel="Data" sink_node_id="2" source_channel="Data" source_node_id="0" />
+		<link enabled="true" id="2" sink_channel="Data" sink_node_id="3" source_channel="Scores" source_node_id="2" />
+		<link enabled="true" id="3" sink_channel="Data" sink_node_id="4" source_channel="VIP" source_node_id="2" />
+		<link enabled="true" id="4" sink_channel="Data" sink_node_id="5" source_channel="Loadings" source_node_id="2" />
+		<link enabled="true" id="5" sink_channel="Data" sink_node_id="6" source_channel="Predictions" source_node_id="2" />
+	</links>
+	<annotations>
+		<text font-family="Helvetica" font-size="13" id="0" rect="(40.0, 320.0, 230.0, 80.0)" type="text/plain">1. 點 File widget，選&#10;   data/rock_preprocessed.tab&#10;   確認 type 是 target、ID 是 meta</text>
+		<text font-family="Helvetica" font-size="13" id="1" rect="(40.0, 410.0, 230.0, 80.0)" type="text/plain">2. 點 PLS-DA，Components = 2&#10;   Status 框應顯示&#10;   Training accuracy: 100.0%</text>
+	</annotations>
+	<thumbnail />
+	<node_properties />
+</scheme>
